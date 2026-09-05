@@ -1,11 +1,12 @@
 require('dotenv').config();
+const { Client, GatewayIntentBits, Partials } = require('discord.js');
+const { computeHash } = require('./imageHash');
+const BannedStore = require('./bannedStore');
+
 const express = require('express');
 const app = express();
 app.get('/', (req, res) => res.send('Бот работает!'));
 app.listen(process.env.PORT || 3000, () => console.log('Веб-сервер для Render запущен'));
-const { Client, GatewayIntentBits, Partials } = require('discord.js');
-const { computeHash } = require('./imageHash');
-const BannedStore = require('./bannedStore');
 
 const store = new BannedStore();
 
