@@ -86,4 +86,6 @@ async function downloadImage(url) {
     return Buffer.from(arrayBuffer);
 }
 
-client.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN).catch(err => {
+    console.error('ОШИБКА ПОДКЛЮЧЕНИЯ К DISCORD:', err.message);
+});
